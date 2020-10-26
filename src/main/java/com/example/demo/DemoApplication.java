@@ -15,16 +15,15 @@ import java.util.List;
 @RestController
 public class DemoApplication {
 
-	@Autowired
 	public UserServiceInterface userService;
 
-	@Autowired
 	private UserDataRepository userDataRepository;
 
 	private static final String defaultValue = "database username in url like database?username=example";
 
-	public DemoApplication(UserDataRepository userDataRepository) {
+	public DemoApplication(UserDataRepository userDataRepository, UserServiceInterface userService) {
 		this.userDataRepository = userDataRepository;
+		this.userService = userService;
 	}
 
 	public static void main(String[] args) {
