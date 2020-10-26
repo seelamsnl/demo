@@ -1,0 +1,6 @@
+com/example/demo/DemoApplication.class
+com/example/demo/model/UserData.class
+com/example/demo/service/UserService.class
+com/example/demo/repository/UserDataRepository.class
+com/example/demo/service/UserServiceInterface.class
+com/example/demo/Users.class

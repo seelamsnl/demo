@@ -18,9 +18,14 @@ public class DemoApplication {
 	@Autowired
 	public UserServiceInterface userService;
 
+	@Autowired
 	private UserDataRepository userDataRepository;
 
 	private static final String defaultValue = "database username in url like database?username=example";
+
+	public DemoApplication(UserDataRepository userDataRepository) {
+		this.userDataRepository = userDataRepository;
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
@@ -52,5 +57,16 @@ public class DemoApplication {
 	public UserData newUser(@RequestBody UserData newUser){
 		System.out.println("Added a new entry");
 		return userDataRepository.save(newUser);
+	}
+
+	@PostMapping("/addUserData")
+	public String create(@RequestParam String name, String companyName, String city) {
+		UserData userData = new UserData();
+
+		userData.setName(name);
+		userData.setCity(city);
+		userData.setCompanyName(companyName);
+		userDataRepository.save(userData);
+		return userData.toString();
 	}
 }

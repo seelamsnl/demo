@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  backend:
+    build: .
+    ports:
+      - "8080:8080"
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test_db
+    cap_add:
+      - SYS_NICE
+    volumes:
+      - ./MysqlDB/userprofiles.sql:/docker-entrypoint-initdb.d/dump.sql
