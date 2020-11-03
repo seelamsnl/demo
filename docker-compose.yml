@@ -17,3 +17,4 @@ services:
       - SYS_NICE
     volumes:
       - ./MysqlDB/userprofiles.sql:/docker-entrypoint-initdb.d/dump.sql
+      - /Users/suneelseelam/Documents/learningSpace/collegeAssignment/demo/mysqlPersistanc:/var/lib/mysql
